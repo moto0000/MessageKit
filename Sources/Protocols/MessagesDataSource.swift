@@ -28,9 +28,6 @@ import UIKit
 /// the data required by a `MessagesCollectionView`.
 public protocol MessagesDataSource: AnyObject {
 
-    /// The `SenderType` of new messages in the `MessagesCollectionView`.
-    func currentSender() -> SenderType
-
     /// A helper method to determine if a given message is from the current `SenderType`.
     ///
     /// - Parameters:
@@ -190,10 +187,6 @@ public protocol MessagesDataSource: AnyObject {
 }
 
 public extension MessagesDataSource {
-
-    func isFromCurrentSender(message: MessageType) -> Bool {
-        return message.sender.senderId == currentSender().senderId
-    }
 
     func numberOfItems(inSection section: Int, in messagesCollectionView: MessagesCollectionView) -> Int {
         return 1

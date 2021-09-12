@@ -37,8 +37,8 @@ class MockMessagesDataSource: MessagesDataSource {
         return senders[0]
     }
 
-    func currentSender() -> SenderType {
-        return currentUser
+    func isFromCurrentSender(message: MessageType) -> Bool {
+        message.sender.senderId == senders[0].senderId
     }
 
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
